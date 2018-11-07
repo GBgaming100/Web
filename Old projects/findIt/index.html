@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>Jquery memory</title>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="CSS/stylesheet.css">
+
+
+	</head>
+	<body>
+
+
+	<div class="jumbotron">
+		<div  class="container">
+			<h1 class="display-4">Welcome to FindIt</h1>
+			<hr class="my-4">
+			<p>Try to match the preview to a image</p>
+			<div class="clicks"> your click amount is: <span>0</span></div>
+			<div class="row">
+				<div class="col-4">
+					<div class="btn btn-primary btn-lg timerStart " role="button">Start Playing</div>
+				</div>
+				<div class="col-4 text-center">
+				<div class="btn btn-primary btn-lg "><div class="time"><span>00:00:00</span></div></div>
+				</div>
+				<div class="col-4 text-center">
+					<div class="btn btn-primary btn-lg col-4 Reset"><div class="Reset">Reset</div></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+		<div class="content-body">
+			<div class="container">
+				<div class="row">
+						<div class=" col-4 float-left">
+							<img class="col-12 preview" id="1" src="images/autobots-logo.gif">
+					</div>
+					<div class="row float-right game-board">
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<footer></footer>
+	<script src="JS/app/jquery.js"></script>
+		<script src="JS/app/timer.jquery.min.js"></script>
+		<script src="JS/main.js"></script>
+
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	</body>
+</html>

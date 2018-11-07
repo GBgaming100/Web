@@ -1,0 +1,8 @@
+
+.sprite {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url("http://coincap.io/images/coins/default.png");
+    background-size: 25px 25px;
+}

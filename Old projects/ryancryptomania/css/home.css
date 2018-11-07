@@ -1,0 +1,76 @@
+.sprite {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: url(/images/coins/default.png);
+  background-size: 25px 25px;
+}
+
+body{
+  background-color: black;
+}
+
+.modal-content{
+  background-color: #212529;
+}
+
+.modal-header, .close, .modal-body{
+  color: #ddd;
+}
+
+.modal-info{
+  color: #bbb;
+}
+
+.info{
+  display: inline-block;
+}
+
+.info-container{
+  display: flex;
+  justify-content: space-around;
+}
+
+.negative{
+  color: red;
+}
+
+.positive{
+  color: green;
+}
+
+.js-id{
+  width: 0;
+  height: 0;
+  display: inline-block;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  margin-left: -2vmin;
+}
+
+.hidden{
+  display: none;
+}
+
+.preLoad{
+  height: 43vmin;
+}
+
+.templateContainer{
+  width: 0;
+  height: 0;
+  opacity: 0;
+  display: inline-block;
+  z-index: -10;
+  position: absolute;
+}
+
+.updated{
+  transition:background-color 0.5s ease;
+  background:lightgreen;
+}
+
+.tableRow{
+  transition:background-color 0.5s ease !important;
+}

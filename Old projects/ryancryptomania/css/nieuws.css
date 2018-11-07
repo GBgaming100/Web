@@ -1,0 +1,29 @@
+body{
+  background: black;
+}
+
+.card{
+  border: 1px solid black;
+}
+
+.card-body{
+  color: #BBB;
+}
+
+.templateContainer{
+  width: 0;
+  height: 0;
+  opacity: 0;
+  display: inline-block;
+  z-index: -10;
+  position: absolute;
+}
+
+.card-footer{
+  display: flex;
+  justify-content: space-between;
+}
+
+a{
+  color: #6c757d;
+}

@@ -1,0 +1,22 @@
+.logo{
+    font-family: 'Pacifico', cursive;
+}
+
+.jumbotron{
+    background:url(https://png.pngtree.com/thumb_back/fh260/back_pic/00/15/30/4656e81f6dc57c5.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.my-4{
+    border-top: 4px solid rgba(0,0,0,.1);
+}
+
+.add_symbol{
+    color: #0B51D8;
+    margin:auto;
+}
+.add_symbol:hover{
+    color: #4D499E;
+    margin:auto;
+}

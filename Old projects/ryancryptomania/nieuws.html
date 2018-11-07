@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/nieuws.css">
+
+    <title>CryptoMania</title>
+  </head>
+  <body>
+    <div class="loader-container js-loader">
+      <div class="loader"></div>
+    </div>
+
+    <div class="templateContainer">
+      <template id="all-characters-template">
+        {{#.}}
+        <div class="card text-center text-white bg-dark">
+          <div class="card-header">
+            {{title}}
+          </div>
+          <div class="card-body">
+            <p class="card-title">{{description}}</p>
+            <p class="card-text">Author: {{author}}</p>
+          </div>
+          <div class="card-footer text-muted">
+            <a class="original" href="{{url}}">Original</a>
+            <p>{{publishedAt}}</p>
+            <p class="source">Source: {{source.name}}</p>
+          </div>
+        </div>
+        {{/.}}
+      </template>
+    </div>
+
+	<!-- Optional JavaScript -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/nieuws.js"></script>
+    <script src="js/nav.js"></script>
+  </body>
+</html>
