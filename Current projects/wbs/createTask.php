@@ -21,4 +21,4 @@ $I = "INSERT INTO `tasks`(`projectId`, `taskName`, `MoSCoW`, `Time`, `Predecesso
 echo $I;
 $I = connectWithDatabase($I);
 
-header(("location:Projects.php?projectId=". $ProjectId));
+header(("location:taskPage.php?projectId=". $ProjectId));

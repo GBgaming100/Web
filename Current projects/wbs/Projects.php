@@ -65,25 +65,43 @@ $o = connectWithDatabase($sqlO);
                 <?php
                 foreach ($i as $key => $Item) {
                     ?>
-                    <input type="hidden" name="showId[]" value="<?php echo $Item['id']; ?>">
+                <div class="js-task-inputs">
+                    <input type="hidden"  name="showId[]" value="<?php echo $Item['id']; ?>">
                     <tr>
-                        <th scope="row"><?php echo $Item['id']; ?></th>
-                        <td><input type="text" class="form-control" name="taskName[]"
-                                   value="<?php echo $Item['taskName']; ?>"></td>
-                        <td><input type="number" class="form-control" name="Predecessor[]"
-                                   value="<?php echo $Item['Predecessor']; ?>"></td>
-                        <td><input type="text" class="form-control" name="MoSCoW[]"
-                                   value="<?php echo $Item['MoSCoW']; ?>"></td>
-                        <td><input type="text" class="form-control" name="Predecessor[]"
-                                   value="<?php echo $Item['Predecessor']; ?>"></td>
-                        <td><input type="number" class="form-control" name="Plan[]"
-                                   value="<?php echo $Item['Time']; ?>"></td>
-                        <td><div id="time" class="form-control js-task-do" name="Do[]"
-                            ><?php echo $Item['ActualTime'] ?></div></td>
-                        <td><input type="text" class="form-control" name="Check[]"
-                                   value="<?php echo $Item['_check']; ?>"></td>
-                        <td><input type="text" class="form-control" name="Act[]" value="<?php echo $Item['Act']; ?>">
+                        <th scope="row"><?php echo$Item['id']; ?></th>
+                        <td>
+                            <input type="text" class="form-control" name="taskName[]"
+                                   value="<?php echo$Item['taskName']; ?>">
                         </td>
+                        <td>
+                            <input type="number" class="form-control" name="Predecessor[]"
+                                   value="<?php echo$Item['Predecessor']; ?>">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="MoSCoW[]"
+                                   value="<?php echo$Item['MoSCoW']; ?>">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="Time[]"
+                                   value="<?php echo$Item['Time']; ?>">
+                        </td>
+                        <td>
+                            <input id="time" class="form-control js-task-do" name="Do[]"
+                                <?php echo$Item['ActualTime'] ?>>
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" name="Plan[]"
+                                   value="">
+                        </td>
+
+                        <td>
+                            <input type="text" class="form-control" name="Check[]"
+                                   value="<?php echo$Item['_check']; ?>">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="Act[]" value="<?php echo $Item['Act']; ?>">
+                        </td>
+                    </div>
             </form>
                         <td>
                             <button class="btn btn-success js-start-timer" id="start">Start</button>
@@ -97,24 +115,7 @@ $o = connectWithDatabase($sqlO);
 
             <input type="button" id="js-update-shows" class="btn btn-success" value="save shows">
 
-            <!--                            <tr>-->
-            <!--                                <th scope="row">--><?php //echo($key + 1) ?><!--</th>-->
-            <!--                                <td><input type="text" class="form-control taskName" name="taskName[]"-->
-            <!--                                           value=" --><?php //echo $Item['taskName'] ?><!--"></td>-->
-            <!--                                <td>--><?php //echo $Item['Predecessor'] ?><!--</td>-->
-            <!--                                <td>--><?php //echo $Item['MoSCoW'] ?><!--</td>-->
-            <!--                                <td>--><?php //echo $Item['Time'] ?><!-- min</td>-->
-            <!--                                <td>--><?php //echo $Item['ActualTime'] ?><!-- min</td>-->
-            <!--                                <td></td>-->
-            <!--                                <td></td>-->
-            <!--                                <td>-->
-            <!--                                    <button class="btn btn-success">Start</button>-->
-            <!--                                </td>-->
-            <!--                                <td>-->
-            <!--                                    <button class="btn btn-danger">Stop</button>-->
-            <!--                                </td>-->
-            <!--                            </tr>-->
-
+            <td colspan="13">Total Time do (min):<div id="js-do-total"></div> </td>
             </tbody>
         </table>
     </div>
@@ -169,7 +170,7 @@ $o = connectWithDatabase($sqlO);
 </div>
 <script src="JS/app/jquery.js"></script>
 <script src="JS/app/timer.jquery.min.js"></script>
-<script src="JS/main.js"></script>
+<script src="JS/test.js"></script>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>

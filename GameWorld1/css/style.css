@@ -1,0 +1,17 @@
+.container{
+  background-color: #003242;
+  position: absolute;
+  margin: -10px;
+  height: 100.1%;
+  width: 100.1%;
+}
+ #menuContent{
+  background-color: black;
+ } 
+
+ .active {
+    background-color:   red;
+ }
+ #logo{
+  background-color:   black;
+ }

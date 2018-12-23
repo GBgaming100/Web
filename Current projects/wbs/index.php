@@ -44,10 +44,11 @@ $i = connectWithDatabase($sqlI);
                     <li class="list-group-item">Actual time (min): <?php echo $o["SUM(actualTime)"] ?></li>
                 </ul>
                 <div class="card-body">
-                    <a class="btn btn-info" href="projects.php?projectId=<?php echo $Iitem['id'] ?>">View Project <i
+                    <a class="btn btn-info" href="taskPage.php?projectId=<?php echo $Iitem['id'] ?>">View Project <i
                                 class="fas fa-folder-open"></i></a>
-                    <a class="btn btn-success" href=".php?">Add task <i class="fas fa-plus-circle"></i></a>
-                    <a class="btn btn-danger"  onclick="return deleteItem()" href="deleteProject.php?projectId=<?php echo $Iitem['id'] ?>">Delete <i class="fas fa-minus-circle"></i></a>
+                    <a class="btn btn-danger" onclick="return deleteItem()"
+                       href="deleteProject.php?projectId=<?php echo $Iitem['id'] ?>">Delete <i
+                                class="fas fa-minus-circle"></i></a>
                 </div>
             </div>
             <?php
@@ -78,12 +79,13 @@ $i = connectWithDatabase($sqlI);
                     <form method="post" action="createProject.php">
                         <div class="form-group">
                             <label>Project Name</label>
-                            <input name="ProjectName" type="text" class="form-control"  placeholder="Project Name">
-                            <small id="emailHelp" class="form-text text-muted">Enter a clear name for the project</small>
+                            <input name="ProjectName" type="text" class="form-control" placeholder="Project Name">
+                            <small id="emailHelp" class="form-text text-muted">Enter a clear name for the project
+                            </small>
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <input name="Description" type="text" class="form-control"  placeholder="Description">
+                            <input name="Description" type="text" class="form-control" placeholder="Description">
                         </div>
                 </div>
                 <div class="modal-footer">

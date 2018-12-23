@@ -1,0 +1,79 @@
+#container{
+	display: table;
+    margin: auto;
+    width: 100%;
+}
+img	{
+	width: 250px;
+	height: 300px;
+	border-radius: 25px;
+}
+
+.potato{
+	display: inline-block;
+	position: relative;
+	background-color: white;
+	border-radius: 25px;
+	margin-right: 25px;
+	margin-bottom: 20px;
+	text-align: center;
+	opacity: 0.75;
+}
+
+.games p{
+	margin-top: 20px;
+	height: 40px;
+}
+
+.games:hover{
+	opacity: 1;
+}
+
+.price{
+	color: white;
+	background-color: gray;
+	position: absolute;
+	right: 0px;
+	top: 285px;
+	width: 70px;
+	height: 30px;
+	font-size: 20px;
+}		
+
+
+.bestel{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #2E4159;
+	border-bottom-right-radius: 25px;
+	border-bottom-left-radius: 25px;
+	color: #8C8474;
+}
+
+.bestel:hover{
+	background-color: #2E4159;
+	opacity: 1;
+
+
+}
+
+h2{
+	color: white;
+	background-color: #8C8474;
+	padding: 15px;
+	padding-left: 30px;
+	font-size: 30px;
+	margin: auto;
+	width: 72%;
+	margin-bottom: 5px;
+
+	border-radius: 25px;
+
+}
+
+.games_total{
+	width: 75%;
+	margin: auto;
+	margin-top: 10px;
+}
+

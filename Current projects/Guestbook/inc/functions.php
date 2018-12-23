@@ -5,7 +5,7 @@ function connectToDB()
 {
 	$host = "localhost";
 	$user = "root";
-	$pass = "usbw";
+	$pass = "";
 	$dB 	= "guestbook";
 	
 	$connect = mysqli_connect($host,$user, $pass, $dB);

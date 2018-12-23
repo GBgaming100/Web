@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('UTC');
 
-include '/inc/functions.php';
+include 'inc/functions.php';
 
 
 $Name = 		"";

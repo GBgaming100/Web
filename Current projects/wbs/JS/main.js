@@ -2,7 +2,7 @@ function updateShows() {
 
     $.ajax({
         type: "POST",
-        url: "inc/update_shows_db.php",
+        url: "inc/update_task_table_db.php",
         data: $("#update-shows-form").serialize(),
 
         success: function(data){
@@ -22,7 +22,8 @@ $(document).ready(function(){
         updateShows();
     });
 
-    $("#table-task td button").click(function(){
+    $(".js-start-timer").click(function(){
+
         startTimer = $(this).closest("tr").find(".js-task-do");
         TotalTime = $(this).closest("tr").find(".js-task-do");
 
@@ -43,6 +44,7 @@ $(document).ready(function(){
 
         });
     });
+
 });
 
 function deleteItem(){

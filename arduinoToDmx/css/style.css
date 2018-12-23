@@ -1,0 +1,85 @@
+/*Start Default Styling*/
+:root{
+    --primary: var(--orange);
+    --primary-hover: #f44f10;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
+.mt-4, .my-4 {
+    margin-top: 4.5rem!important;
+}
+
+a{
+    color: var(--primary);
+}
+a:hover{
+    color: var(--primary-hover);
+}
+.rail-icon{
+    width: 30px;
+}
+.btn-primary
+{
+    color: #fff;
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+.btn-primary:hover
+{
+    color: #fff;
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+.text-primary{
+    color: var(--primary)!important;
+}
+/*end Default styling*/
+
+
+.jumbotron{
+    height: 100vh;
+    background-image: url(https://scontent-amt2-1.xx.fbcdn.net/v/t31.0-8/27021935_1686413758068804_901873813095128893_o.jpg?_nc_cat=100&_nc_ht=scontent-amt2-1.xx&oh=8c1d19255c597ed4ff8711838035e5ff&oe=5C952E69);
+    -webkit-background-size: cover;
+    background-size: cover;
+    color: white;
+    z-index: -1;
+}
+
+.jumbotron_Text{
+    margin-left: 3vw;
+    margin-top: 25vh;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+}
