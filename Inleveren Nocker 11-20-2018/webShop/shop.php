@@ -90,6 +90,15 @@ $i = connectDB($query);
                 <li class="nav-item">
                     <a class="nav-link" href="about.html">About</a>
                 </li>
+                <?php if ($_SESSION['login'] == false) { ?>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Login
+                    </button>
+                <?php } else {
+                    echo "<li class='nav-item nav-link'>logged in as Admin</li>";
+                    echo "<a href='deleteSession.php' class='btn btn-primary'> Logout</a>";
+
+                } ?>
             </ul>
         </div>
     </div>
@@ -100,119 +109,153 @@ $i = connectDB($query);
 </nav>
 
 
-<div class="container">
-    <div class="shopping-cart">
-        <div class="shopping-cart-header">
-            <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
-            <div class="shopping-cart-total">
-                <span class="lighter-text">Total:</span>
+<!-- Modal for inlog -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-        </div> <!--end shopping-cart-header -->
-        <ul class="shopping-cart-items">
-
-
-        </ul>
-        <div class="row">
-            <a href="checkout.php" class="btn btn-success">Checkout</a>
-            <a href="deleteSession.php" class="btn btn-danger">Clear Cart</a>
+            <div class="modal-body">
+                <form method="POST" action="login.php">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">UserName</label>
+                        <input name="username" type="text" class="form-control" aria-describedby="emailHelp"
+                               placeholder="Enter User Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input name="password" type="password" class="form-control" id="exampleInputPassword1"
+                               placeholder="Password">
+                    </div>
+                    <INPUT class="btn btn-primary" TYPE="Submit" Name="Submit1" VALUE="Login">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </form>
+            </div>
         </div>
-    </div> <!--end shopping-cart -->
-    </nav>
+    </div>
+</div>
 
+<nav>
     <div class="container">
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-11">
-                <h5>Games</h5>
-                Wat ons betreft valt er altijd wel wat te gamen. Van racing games tot RPG's en van shooters tot
-                strategiespellen. We zijn van alle markten thuis en eigenlijk moet het toch wel heel raar lopen, willen
-                we
-                jouw
-                favoriete genre hier niet hebben staan.
-            </div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="card">
-            <div class="card-body">
+        <div class="shopping-cart">
+            <div class="shopping-cart-header">
+                <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
+                <div class="shopping-cart-total">
+                    <span class="lighter-text">Total:</span>
+                </div>
+            </div> <!--end shopping-cart-header -->
+            <ul class="shopping-cart-items">
 
-                <div class="row">
-                    <!--Start Item-->
-                    <?php
-                    foreach ($i as $x => $x_value) {
-                        ?>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-20">
-                                <a href="#"><img class="card-img-top" src="<?php echo $x_value['imgSrc']; ?>"
-                                                 alt=""></a>
-                                <div class="card-body" id="card-body">
-                                    <h4 class="card-title">
-                                        <a href="#"><?php echo $x_value['name'] ?></a>
-                                    </h4>
-                                    <h5>$<?php echo $x_value['price'] ?></h5>
-                                    <p class="card-text">Genre: <?php echo $x_value['Genre'] ?></p>
-                                    <div class="btn">
+
+            </ul>
+            <div class="row">
+                <a href="checkout.php" class="btn btn-success">Checkout</a>
+                <a href="deleteSession.php" class="btn btn-danger">Clear Cart</a>
+            </div>
+        </div> <!--end shopping-cart -->
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-11">
+            <h5>Games</h5>
+            Wat ons betreft valt er altijd wel wat te gamen. Van racing games tot RPG's en van shooters tot
+            strategiespellen. We zijn van alle markten thuis en eigenlijk moet het toch wel heel raar lopen, willen
+            we
+            jouw
+            favoriete genre hier niet hebben staan.
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="card">
+        <div class="card-body">
+
+            <div class="row">
+                <!--Start Item-->
+                <?php
+                foreach ($i as $x => $x_value) {
+                    ?>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-20">
+                            <a href="#"><img class="card-img-top" src="<?php echo $x_value['imgSrc']; ?>"
+                                             alt=""></a>
+                            <div class="card-body" id="card-body">
+                                <h4 class="card-title">
+                                    <a href="#"><?php echo $x_value['name'] ?></a>
+                                </h4>
+                                <h5>$<?php echo $x_value['price'] ?></h5>
+                                <p class="card-text">Genre: <?php echo $x_value['Genre'] ?></p>
+                                <div class="btn">
+                                    <?php if ($_SESSION['login'] == true) { ?>
                                         <button type="button" class="btn btn-primary btn_add_js"
                                                 value="<?php echo $x_value['id'] ?>">Add to basket
                                         </button>
+                                    <?php } ?>
 
-                                        <a href="shopItem.php?gameId=<?php echo $x_value['id'] ?>" type="button"
-                                           class="btn btn-secondary btn_add_js"
-                                        >More info
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">Publisher: <?php echo $x_value['publisher'] ?></small>
+                                    <a href="shopItem.php?gameId=<?php echo $x_value['id'] ?>" type="button"
+                                       class="btn btn-secondary btn_add_js"
+                                    >More info
+                                    </a>
                                 </div>
                             </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Publisher: <?php echo $x_value['publisher'] ?></small>
+                            </div>
                         </div>
-                        <!--End Item-->
-                        <?php
-                    }
-                    ?>
-                </div>
+                    </div>
+                    <!--End Item-->
+                    <?php
+                }
+                ?>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="container" style="display: none;">
-        <template id="template">
-            {{#.}}
-            <li class="clearfix">
-                <img src="{{image}}" alt="item1"/>
-                <span class="item-name">{{name}}</span>
-                <span class="item-price">${{price}}</span>
-            </li>
-            {{/.}}
-        </template>
+<div class="container" style="display: none;">
+    <template id="template">
+        {{#.}}
+        <li class="clearfix">
+            <img src="{{image}}" alt="item1"/>
+            <span class="item-name">{{name}}</span>
+            <span class="item-price">${{price}}</span>
+        </li>
+        {{/.}}
+    </template>
+</div>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Max van den Boom 2018</p>
     </div>
+    <!-- /.container -->
+</footer>
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Max van den Boom 2018</p>
-        </div>
-        <!-- /.container -->
-    </footer>
+<!-- Bootstrap core JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+<!-- Jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-            crossorigin="anonymous"></script>
-    <!-- Jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Mustache JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
 
-    <!-- Mustache JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
-
-    <script src="js/moment.min.js"></script>
-    <script src="js/main.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 

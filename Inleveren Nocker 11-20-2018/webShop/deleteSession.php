@@ -2,5 +2,5 @@
 session_start();
 session_destroy();
 
-header('Location: shop.php?consoleId=');
+header('Location: index.php');
 ?>

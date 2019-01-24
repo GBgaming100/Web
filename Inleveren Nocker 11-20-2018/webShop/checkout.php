@@ -12,6 +12,9 @@ $i = connectDB($query);
 
 
 $count = 0;
+$totalPrice = 0;
+
+
 ?>
 <html lang="en">
 
@@ -82,7 +85,7 @@ $count = 0;
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($_SESSION as $value) {
+        <?php foreach ($_SESSION['cartName'] as $value) {
 
          ?>
             <tr>
@@ -90,9 +93,20 @@ $count = 0;
                 <td><?php echo $_SESSION['cartPrice'][$count] ?></td>
             </tr>
         <?php
+
+            //calculates the total of the cart
+            $cartId = $_SESSION['cart'][$count];
+            $query = "SELECT price FROM products WHERE id = $cartId";
+            $db_price = connectDB($query);
+            $totalPrice = $totalPrice +  floatval($db_price[0]['price']);
+            var_dump($totalPrice);
+
             $count++;
         } ?>
-
+        <tr>
+            <td  style="float:right"><?php echo $totalPrice;?>,00</td>
+            <td colspan="2" style="float:right">Total price is:</td>
+        </tr>
 
         </tbody>
     </table>

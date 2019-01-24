@@ -9,7 +9,6 @@ include "inc/db.php";
 $sql = "SELECT * FROM `users`";
 $i = connectDB($sql);
 
-var_dump($_SESSION);
 
 ?>
 <html>
@@ -39,53 +38,101 @@ var_dump($_SESSION);
                 </button>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col">
-                        <label>First Name</label>
-                        <input type="text" class="form-control FirtsName" placeholder="First name">
+                <form action="inc/uploadImg.php" method="POST" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col">
+                            <label>First Name</label>
+                            <input type="text" class="form-control FirtsName" placeholder="First name">
+                        </div>
+                        <div class="col">
+                            <label>First Name</label>
+                            <input type="text" class="form-control LastName" placeholder="Last name">
+                        </div>
                     </div>
-                    <div class="col">
-                        <label>First Name</label>
-                        <input type="text" class="form-control LastName" placeholder="Last name">
+                    <label>Email</label>
+                    <input name="email" type="email" class="form-control Email" placeholder="Email">
+                    <label>Phone Number</label>
+                    <input name="phoneNumber" type="text" class="form-control phoneNumber" placeholder="Phone Number">
+                    <div class="row">
+                        <div class="col">
+                            <label>Street</label>
+                            <input type="text" class="form-control Street" placeholder="Street">
+                        </div>
+                        <div class="col">
+                            <label>Number</label>
+                            <input type="text" class="form-control Number" placeholder="Number">
+                        </div>
+                        <div class="col">
+                            <label>Extra</label>
+                            <input type="text" class="form-control Extra" placeholder="Extra">
+                        </div>
                     </div>
-                </div>
-                <label>Email</label>
-                <input name="email" type="email" class="form-control Email" placeholder="Email">
-                <label>Phone Number</label>
-                <input name="phoneNumber" type="text" class="form-control phoneNumber" placeholder="Phone Number">
-                <div class="row">
-                    <div class="col">
-                        <label>Street</label>
-                        <input type="text" class="form-control Street" placeholder="Street">
+                    <div class="row">
+                        <div class="col">
+                            <label>Zipcode</label>
+                            <input type="text" class="form-control Zipcode" placeholder="Zipcode">
+                        </div>
+                        <div class="col">
+                            <label>City</label>
+                            <input type="text" class="form-control City" placeholder="City">
+                        </div>
                     </div>
-                    <div class="col">
-                        <label>Number</label>
-                        <input type="text" class="form-control Number" placeholder="Number">
+
+                    <div class="col mt-3">
+                        <input type="file" name="files[]" class="custom-file-input" id="inputGroupFile01"
+                               accept="image/x-png,image/gif,image/jpeg" Number>
+                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                     </div>
-                    <div class="col">
-                        <label>Extra</label>
-                        <input type="text" class="form-control Extra" placeholder="Extra">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label>Zipcode</label>
-                        <input type="text" class="form-control Zipcode" placeholder="Zipcode">
-                    </div>
-                    <div class="col">
-                        <label>City</label>
-                        <input type="text" class="form-control City" placeholder="City">
-                    </div>
-                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary btn_add_contact">Submit</button>
             </div>
         </div>
+        <input type="hidden" name="destination" value="<?php echo $_SERVER["REQUEST_URI"]; ?>"/>
+        </form>
     </div>
 </div>
 <!--Modal End -->
+
+<!--Modal Start register-->
+<div class="modal  fade" id="createAccount" tabindex="-1" role="dialog" aria-labelledby="createProjects"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create Account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <label>UserName</label>
+                        <input type="text" class="form-control username" placeholder="Username">
+                    </div>
+                    <div class="col">
+                        <label>Password</label>
+                        <input type="password" class="form-control password" placeholder="password">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>Email</label>
+                        <input type="text" class="form-control emailRegister" placeholder="Email">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary btn_add_register">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal End -->
+
 <!--Jumbotron Start-->
 <div class="jumbotron">
     <div class="container">
@@ -109,17 +156,20 @@ var_dump($_SESSION);
                            placeholder="Enter User Name">
                 </div>
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input name="password" type="password" class="form-control Password" id="exampleInputPassword1"
+                           placeholder="Password">
                 </div>
-                <input name="password" type="password" class="form-control Password" id="exampleInputPassword1"
-                       placeholder="Password">
+                <div class="btn btn-primary btn-login"> login</div>
+                <button type="button" class="btn btn-primary" data-toggle="modal"
+                        data-target="#createAccount">
+                    Registreer
+                </button>
             </div>
-            <div class="btn btn-primary btn-login"> login</div>
-            <div class="btn btn-primary btn-Registreer"> Registreer</div>
         </div>
-    </div>
     </div>
 </div>
 </div>
@@ -132,7 +182,7 @@ var_dump($_SESSION);
                 {{#.}}
                 <div class="card col-md-4 mb-4 p-4">
                     <img class="card-img-top"
-                         src="https://media.discordapp.net/attachments/298750446342766592/489425857455325185/UeMLJe3gW9neecfegRyWSVlTTus8TlPctH3pcyBHP5RaX8O3hHJOZHmpo64covvYhlTFpDg3QAAAAASUVORK5CYII.png"
+                         src="{{imgSrc}}"
                          alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{{FirtsName}} {{LastName}}</h5>
@@ -141,7 +191,8 @@ var_dump($_SESSION);
                             <li class="list-group-item">City: {{City}}</li>
                             <li class="list-group-item">Street: {{Street}}{{Number}}</li>
                             <li class="list-group-item">Zipcode: {{Zipcode}}</li>
-                            <button type="button" class="btn btn-primary more_info_button" value="{{id}}" data-toggle="modal" data-target="#contactModal">
+                            <button type="button" class="btn btn-primary more_info_button" value="{{id}}"
+                                    data-toggle="modal" data-target="#contactModal">
                                 More info
                             </button>
                         </ul>
@@ -171,7 +222,8 @@ var_dump($_SESSION);
 
 
 <!-- User Modal -->
-<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">

@@ -68,11 +68,13 @@ if (!isset($_SESSION['login'])){
                     <a class="nav-link" href="about.html">About</a>
                 </li>
                 <?php if ($_SESSION['login'] == false){ ?>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Login
-                </button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Login
+                    </button>
                 <?php }else{
                     echo "<li class='nav-item nav-link'>logged in as Admin</li>";
+                    echo "<a href='deleteSession.php' class='btn btn-primary'> Logout</a>";
+
                 } ?>
             </ul>
         </div>
@@ -91,7 +93,7 @@ if (!isset($_SESSION['login'])){
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="inc/login.php">
+                <form method="POST" action="login.php">
                     <div class="form-group">
                         <label for="exampleInputEmail1">UserName</label>
                         <input name="username" type="text" class="form-control" aria-describedby="emailHelp"

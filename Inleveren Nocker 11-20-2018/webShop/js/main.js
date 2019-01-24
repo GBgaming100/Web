@@ -28,6 +28,7 @@ function addToCart(gameId) {
             var price = data.cartPrice;
             var name = data.cartName;
             var img = data.cartImg;
+            var id = data.id;
 
 
             var temp_array = [];

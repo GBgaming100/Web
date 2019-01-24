@@ -1,59 +1,134 @@
-<!--
-  Don't use the "5-unsafe" CDN version in your own code. It will break on you. 
-  Instead go to videojs.com and copy the CDN urls for the latest version.
--->
+<html lang="en">
 
-<div id="instructions">
+<head>
 
-    <video id="my_video_1" class="video-js vjs-default-skin" width="640px" height="267px"
-        controls preload="none" poster='http://video-js.zencoder.com/oceans-clip.jpg'
-        data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
-      <source src="https://vjs.zencdn.net/v/oceans.mp4" type='video/mp4' />
-      <source src="https://vjs.zencdn.net/v/oceans.webm" type='video/webm' />
-    </video>
-  
-    <p>Custom skin for <a href="http://www.videojs.com" target="_blank">video.js</a>. Requires v5.0.0 or higher.</p>
-    
-    <h2>HOW TO CUSTOMIZE:</h2>
-    <ol>
-      <li>Click the CodePen <strong>Fork</strong> link above to create a new copy</li>
-      <li>Change the CSS (SCSS) as desired</li>
-      <li>Click <strong>Save</strong> to save your changes</li>
-      <li>Click <strong>Settings</strong> to name and describe your skin</li>
-      <li>Click the <strong>Share</strong> link to tweet your skin, and include @videojs so we know about it</li>
-    </ol>
-    <h2>HOW TO USE:</h2>
-    <ol>
-      <li>Click "Refresh" if you made any changes</li>
-      <li>Copy the CSS contents of the following box</li>
-      <li>Include it in the page with your player in a &lt;style&gt; tag or with a <a href="https://www.w3schools.com/css/css_howto.asp">stylesheet include</a></li>
-    </ol>
-    <textarea id="css_result"></textarea>
-    <button id="refresh">Refresh</button>
-  </div>
-    
-  <style>
-    #instructions { max-width: 640px; text-align: left; margin: 30px auto; }
-    #instructions textarea { width: 100%; height: 100px; }
-    
-    /* Show the controls (hidden at the start by default) */
-    .video-js .vjs-control-bar { 
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-    }
-  
-    /* Make the demo a little prettier */
-    body {
-      margin-top: 20px;
-      background: #222;
-      text-align: center; 
-      color: #aaa;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      background: radial-gradient(#333, hsl(200,30%,6%) );
-    }
-  
-    a, a:hover, a:visited { color: #76DAFF; }
-  </style>
-  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>WebShop</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">WebShop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="shop.php?consoleId=ps4">PS4</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="shop.php?consoleId=Xbox">Xbox</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="shop.php?consoleId=Pc">Pc</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div style="height: 100vh;" class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">About Us</h1>
+        <div class="row">
+            <div class="col-4">
+                <img src="data:image/jpeg;base64,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">
+            </div>
+            <div class="col-8">
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse odio ex, lobortis
+                    et feugiat et, pretium ac libero. Maecenas maximus arcu orci, sit amet dapibus sem ultricies sed. Ut
+                    arcu nisl, imperdiet sagittis justo ut, consequat vulputate sem. Curabitur nec lacus faucibus,
+                    blandit nisi eu, porttitor tellus. Phasellus ut sagittis ligula. Etiam dignissim dui id lacus
+                    eleifend congue ut eu sem. Praesent imperdiet vel ex in tristique. Maecenas varius eu lacus quis
+                    sodales. Nam eu rhoncus lacus. Ut eleifend tincidunt eros ac tincidunt.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-5"></div>
+            <div class="col-6">
+                <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">contact us!</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for contact -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Contact</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="contact.php">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input name="Title" type="text" class="form-control"
+                               placeholder="Enter title of ticket here">
+                    </div>
+                    <div class="form-group">
+                        <label>comment</label>
+                        <textarea name="comment" type="comment" class="form-control" placeholder="comment"></textarea>
+                    </div>
+                    <INPUT class="btn btn-primary" TYPE="Submit" Name="Submit1" VALUE="Login">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Max van den Boom 2018</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+<!-- Jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+</body>
+
+</html>

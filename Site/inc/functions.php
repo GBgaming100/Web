@@ -3,7 +3,7 @@
 
 	function connectWithDatabase($sql)
 	{
-		$connect = mysqli_connect("localhost","root","", "myvending"); //localhost
+        $connect = mysqli_connect("http://amxdev.nl:3306","vending","102200", "myvending"); //localhost
 
 		$resource = mysqli_query($connect, $sql);
 	    $retuning_array = array();
